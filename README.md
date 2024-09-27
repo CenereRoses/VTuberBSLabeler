@@ -1,5 +1,6 @@
-# ATproto labeler
+# Cloned from the ATproto labeler
 
+This labeler is for labeling VTuber accounts, primarily for VTuber-specific terms.
 This is an implementation of a basic labeler. It does not have any UI and does not impose any workflow on you.
 Labels can be created via an API, or any other way you implement.
 
@@ -43,17 +44,6 @@ For someone to be able to subscribe to your labeler and see the labels, two thin
 
 `labeler` and `list-labeler` automatically do it at startup. Just make sure that in your config
 you have `labels` set up the way you want them, and that `did` and `password` are specified too.
-
-## Migrating from Ozone
-
-WARNING: this wasn't tested yet on any live instance, please report any issues if you do this.
-
-`cmd/clone` implements making a copy of a labeler with the same sequence numbers, so cursor values
-any consumers have will remain valid and point to the same data.
-
-1. Keep Ozone running, but ensure that no new changes are happening.
-2. `docker compose run --entrypoint=./clone labeler --config=/config.yaml --from=https://your.ozone.instance`
-3. If it completes without errors, start your labeler with `docker compose up -d`
 
 ## Labeling accounts based on a mute list
 
